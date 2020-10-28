@@ -19,4 +19,4 @@ server.setConfig((app) => {
     app.use(logger);
 });
 
-server.build().listen(3001, '0.0.0.0',() => `Server on!!`);
+server.build().listen(3001, '0.0.0.0',() => console.log(`Server on!!`));
