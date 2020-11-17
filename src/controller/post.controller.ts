@@ -13,12 +13,12 @@ export class PostController implements interfaces.Controller {
     }
 
     @httpGet("/")
-    public async index (@request() _req: express.Request, @response() res: express.Response) {
+    public async get(@request() _req: express.Request, @response() res: express.Response) {
         try {
-            //const posts = await this.postRepository.findAll();
-            res.send(this.postRepository.getName())
+            const posts = await this.postRepository.getAll();
+            res.send(posts)
         } catch(error) {
-            res.send('error')
+            res.send(error)
         }
     }
 }
