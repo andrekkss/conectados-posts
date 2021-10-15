@@ -8,7 +8,10 @@ import morgan from "morgan"
 import * as bodyParser from 'body-parser';
 
 const server = new InversifyExpressServer(container, null, { rootPath: "/api/v1" });
-mongoose.connect('mongodb://conectados-mongo:27017/conectados', {
+
+const mongoUri = process.env.MONGO_URL || "mongodb://conectados-mongo:27017/conectados"
+
+mongoose.connect(mongoUri, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
