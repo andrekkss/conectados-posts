@@ -1,9 +1,8 @@
-import TYPES from './type';
-
-import {Container} from 'inversify';
+import { Container } from 'inversify';
 import { PostRepositoryImpl } from '../repository/PostRepositoryImpl';
 
 const container = new Container();
 
-container.bind<PostRepositoryImpl>(TYPES.PostRepositoryImpl ).to(PostRepositoryImpl).inSingletonScope();
+container.bind(PostRepositoryImpl).toSelf();
+
 export default container;
